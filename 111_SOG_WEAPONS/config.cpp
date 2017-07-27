@@ -6,7 +6,7 @@ class CfgPatches
 		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_Mark","A3_Anims_F","A3_Anims_F_Config_Sdr","A3_Weapons_F_Acc","A3_Weapons_F_beta","A3_Weapons_F_EBR","rhsusf_c_weapons","rhsusf_weapons2","kio_sr25"};
 		requiredVersion = 0.1;
 		units[] = {"111SOG_Rifle_Box"};
-		weapons[] = {"srifle_LRR_F","111SOG_EBR_black_F","111SOG_EBR_DE_F","111SOG_EBR_GR_F","111SOG_MK1_Beowulf","111SOG_MK1_Beowulf_w","111SOG_MK1_Beowulf_od","111SOG_MK1_Beowulf_fde"};
+		weapons[] = {"KRS_M14_BLK","KRS_M14_TAN","KRS_M14_ARCTIC","KRS_M14_WOOD","srifle_LRR_F","111SOG_EBR_black_F","111SOG_EBR_DE_F","111SOG_EBR_GR_F","111SOG_MK1_Beowulf","111SOG_MK1_Beowulf_w","111SOG_MK1_Beowulf_od","111SOG_MK1_Beowulf_fde"};
 		magazines[] = {"20rnd_Beowulf_magazine"};
 		ammo[] = {"Beowulf_ball"};
 	};
@@ -109,21 +109,30 @@ class CfgWeapons
 			};
 		};
 	};
-	/*class KRS_M14_TAN: srifle_DMR_06_camo_F
+	
+	class KRS_M14_BLK: srifle_DMR_06_camo_F
 	{
 		author = "Krossin";
 		scope = 2;
-		displayName = "M14 (Tan)";
+		displayName = "M14 (BLK)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\M14_Tan_co.paa","\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\dmr_06_02_camo_co.paa"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_blk_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
 	};
-	class KRS_M14_TAN_CAMO: srifle_DMR_06_camo_F
+	class KRS_M14_TAN: srifle_DMR_06_camo_F
 	{
 		author = "Krossin";
 		scope = 2;
-		displayName = "M14 (Tan Camo)";
+		displayName = "M14 (Desert)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\M14_Tan_Camo_co.paa","\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\dmr_06_02_camo_co.paa"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_desert_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+	};
+	class KRS_M14_ARCTIC: srifle_DMR_06_camo_F
+	{
+		author = "Krossin";
+		scope = 2;
+		displayName = "M14 (Arctic)";
+		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_arctic_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
 	};
 	class KRS_M14_WOOD: srifle_DMR_06_camo_F
 	{
@@ -131,8 +140,9 @@ class CfgWeapons
 		scope = 2;
 		displayName = "M14 (Wood)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\M14_wood_co.paa","\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\DMR_06_02_CO.paa"};
-	};*/
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_wood_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+	};
+	
 	//------------------------------------------408----------------------------------------//
 	class srifle_LRR_F: LRR_base_F
 	{
