@@ -117,6 +117,7 @@ class CfgWeapons
 		displayName = "M14 (BLK)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_blk_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
 	};
 	class KRS_M14_TAN: srifle_DMR_06_camo_F
 	{
@@ -124,7 +125,8 @@ class CfgWeapons
 		scope = 2;
 		displayName = "M14 (Desert)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_desert_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_desert_co.paa","\111_SOG_WEAPONS\Data\dmr_metal_tan_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
 	};
 	class KRS_M14_ARCTIC: srifle_DMR_06_camo_F
 	{
@@ -132,7 +134,8 @@ class CfgWeapons
 		scope = 2;
 		displayName = "M14 (Arctic)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_arctic_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_arctic_co.paa","\111_SOG_WEAPONS\Data\dmr_metal_wht_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
 	};
 	class KRS_M14_WOOD: srifle_DMR_06_camo_F
 	{
@@ -141,6 +144,7 @@ class CfgWeapons
 		displayName = "M14 (Wood)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_wood_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
 	};
 	
 	//------------------------------------------408----------------------------------------//
