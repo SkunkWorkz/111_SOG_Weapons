@@ -326,7 +326,7 @@ class CfgWeapons
 	{
 		author = "Krossin";
 		scope = 2;
-		displayName = "M14 (BLK)";
+		displayName = "111SOG M14 (BLK)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_blk_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
 	};
@@ -334,7 +334,7 @@ class CfgWeapons
 	{
 		author = "Krossin";
 		scope = 2;
-		displayName = "M14 (Desert)";
+		displayName = "111SOG M14 (Desert)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_desert_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
 	};
@@ -342,7 +342,7 @@ class CfgWeapons
 	{
 		author = "Krossin";
 		scope = 2;
-		displayName = "M14 (Arctic)";
+		displayName = "111SOG M14 (Arctic)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_arctic_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
 	};
@@ -350,7 +350,7 @@ class CfgWeapons
 	{
 		author = "Krossin";
 		scope = 2;
-		displayName = "M14 (Wood)";
+		displayName = "111SOG M14 (Wood)";
 		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_wood_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
 	};
@@ -389,7 +389,7 @@ class CfgWeapons
 	{
 		author = "Shrike";
 		baseWeapon = "111SOG_EBR_black_F";
-		displayName = "Mk14 EBR 7.62 mm (Black)";
+		displayName = "111SOG Mk14 EBR 7.62 mm (Black)";
 		scope = 2;
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_black_co.paa","\111_SOG_WEAPONS\data\ebr02_black_co.paa"};
@@ -400,7 +400,7 @@ class CfgWeapons
 	{
 		author = "Shrike";
 		baseWeapon = "111SOG_EBR_AOR1_F";
-		displayName = "Mk14 EBR 7.62 mm (DE)";
+		displayName = "111SOG Mk14 EBR 7.62 mm (DE)";
 		scope = 2;
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_AOR1_co.paa","\111_SOG_WEAPONS\data\ebr02_AOR1_co.paa"};
@@ -411,7 +411,7 @@ class CfgWeapons
 	{
 		author = "Shrike";
 		baseWeapon = "111SOG_EBR_AOR1_F";
-		displayName = "Mk14 EBR 7.62 mm (Grey)";
+		displayName = "111SOG Mk14 EBR 7.62 mm (Grey)";
 		scope = 2;
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_gry_co.paa","\111_SOG_WEAPONS\data\ebr02_gry_co.paa"};
@@ -422,7 +422,7 @@ class CfgWeapons
 	class 111SOG_RPG32_wh: launch_RPG32_F
 	{
 		author = "Loki";
-		displayName = "RPG 42 (White)";
+		displayName = "111SOG RPG 42 (White)";
 		hiddenSelections[] = {"Camo_1","Camo_2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_wh.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
 		maxZeroing = 1500;  //changed from 600
@@ -441,7 +441,7 @@ class CfgWeapons
 	class 111SOG_RPG32_bk: launch_RPG32_F
 	{
 		author = "Loki";
-		displayName = "RPG 42 (Black)";
+		displayName = "111SOG RPG 42 (Black)";
 		hiddenSelections[] = {"Camo_1","Camo_2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_bk.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
 		maxZeroing = 1500;  //changed from 600
