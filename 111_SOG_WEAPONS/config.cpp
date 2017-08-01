@@ -594,7 +594,7 @@ class CfgWeapons
 		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
 		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
 	};
-	//------------------------------------------LOKI LAUNCHER-------------------------------------------------------------//
+	//---------------------------------------LOKI LAUNCHER-------------------------------------------------------------//
 	class 111SOG_RPG32_wh: launch_RPG32_F
 	{
 		author = "Loki";
