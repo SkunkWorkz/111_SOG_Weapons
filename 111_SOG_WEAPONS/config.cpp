@@ -13,7 +13,7 @@ class CfgPatches
 };
 
 
-//-------------------------------------------ADDING EVENTHANDLERS---------------------------------//
+//-------------------------------------ADDING EVENTHANDLERS---------------------------------//
 
 /*class Extended_PostInit_EventHandlers
 {
@@ -128,6 +128,52 @@ class TMR_RPG42ThermobaricExplosionEffects
 		lifeTime = 1;
 	};
 };
+
+class FIR_WPExplosion
+{
+	class LightExp 
+	{
+		simulation = "light";
+		type = "ExploLight";
+		position[] = {
+				0, 0, 0
+		};
+		intensity = 0.001000;
+		interval = 1;
+		lifeTime = 1;
+	};
+
+	class Explosion1 
+	{
+		simulation = "particles";
+		type = "FIR_WPCloud";
+		position[] = {
+				0, 0, 0
+		};
+		intensity = 1;
+		interval = 1;
+		lifeTime = 1;
+	};
+
+	class Trails 
+	{
+		simulation = "particles";
+		type = "WPTrails";
+		position[] = {
+				0, 0, 0
+		};
+		intensity = 1;
+		interval = 1;
+		lifeTime = 1;
+	};
+	class FireDamage1 
+	{
+		simulation = "particles";
+		type = "FIR_FireDamage1";
+	};	
+};
+
+
 class CfgCloudlets
 {
 	class Default;
@@ -219,7 +265,137 @@ class CfgCloudlets
 		interval = 0.8;
 		positionVar[] = {4,8,4};
 	};
+	class FIR_WPCloud : Default
+	{
+		blockAIVisibility = true; 		
+		interval = 0.060000;
+		circleRadius = 0;
+		circleVelocity[] = {
+				0, 0, 0
+		};
+		particleShape = "\A3\data_f\ParticleEffects\Universal\Universal";
+		particleFSNtieth = 16;
+		particleFSIndex = 12;
+		particleFSFrameCount = 13;
+		particleFSLoop = 0;
+		angleVar = 1;
+		animationName = "";
+		particleType = "Billboard";
+		timerPeriod = 1;
+		lifeTime = 12;
+		moveVelocity[] = {
+				0, 0, 0
+		};
+		rotationVelocity = 0;
+		weight = 10;
+		volume = 7.900000;
+		rubbing = 0.100000;
+		size[] = {
+				5, 10, 13, 16, 18, 20, 21, 22
+		};
+		color[] = {
+				{1, 1, 1, 1}, {1, 1, 1, 0}
+		};
+		animationSpeed[] = {
+				1000
+		};
+		randomDirectionPeriod = 1;
+		randomDirectionIntensity = 0;
+		onTimerScript = "";
+		beforeDestroyScript = "";
+		lifeTimeVar = 4;
+		positionVar[] = {
+				4, 3, 4
+		};
+		MoveVelocityVar[] = {
+				0.200000, 0.200000, 0.200000
+		};
+		rotationVelocityVar = 20;
+		sizeVar = 0.300000;
+		colorVar[] = {
+				0, 0, 0, 0
+		};
+		randomDirectionPeriodVar = 0;
+		randomDirectionIntensityVar = 0;
+			
+		//--- fire damage related parameters (optional)
+		damageType="Fire";                       //damage type, only available option is "Fire" so far
+		coreIntensity = 4.25;                    //damage coeficient in the center of fire
+		coreDistance = 8.0;                      //how far can unit get damage
+		damageTime = 0.1;                        //how often is unit getting damage 		
+	};
+	class FIR_FireDamage1 : Default
+	{
+		animationSpeedCoef = 1;
+		colorCoef[] = {
+				1, 1, 1
+		};
+		sizeCoef = 1;
+		position[] = {
+				0, 0, 0
+		};
+		interval = 100;
+		circleRadius = 0;
+		circleVelocity[] = {
+				0, 0, 0
+		};
+		particleShape = "\A3\data_f\ParticleEffects\Universal\Universal";
+		particleFSNtieth = 16;
+		particleFSIndex = 1;
+		particleFSFrameCount = 1;
+		particleFSLoop = 0;
+		angleVar = 360;
+		animationName = "";
+		particleType = "Billboard";
+		timerPeriod = 1;
+		lifeTime = 12.000000;
+		moveVelocity[] = {
+				0, 0, 0
+		};
+		rotationVelocity = 0;
+		weight = 1;
+		volume = 0.104000;
+		rubbing = 0;
+		size[] = {
+				0.00010000
+		};
+		color[] = {
+				{1, 1, 1, 0}
+		};
+		animationSpeed[] = {
+				0
+		};
+		randomDirectionPeriod = 0.100000;
+		randomDirectionIntensity = 0.100000;
+		onTimerScript = "";
+		beforeDestroyScript = "";
+		blockAIVisibility = 0;
+		lifeTimeVar = 0;
+		positionVar[] = {
+				0, 0, 0
+		};
+		MoveVelocityVar[] = {
+				0, 0, 0
+		};
+		rotationVelocityVar = 1;
+		sizeVar = 0;
+		colorVar[] = {
+				0, 0, 0, 0.000000
+		};
+		randomDirectionPeriodVar = 0;
+		randomDirectionIntensityVar = 0;
+		coreIntensity = 4.250000;
+		coreDistance = 20.000000;
+		damageTime = 2.100000;
+		constantDistance = 10.000000;
+		damageType = "Fire";
+		//coreIntensity = 3;  //damage coeficient in the center of fire
+		//coreDistance = 19.0;     //how far can unit get damage
+		//damageTime = 4;   
+	};
 };
+
+
 
 //------------------------------------------------------|||WEAPONS|||---------------------------------
 
@@ -427,7 +603,7 @@ class CfgWeapons
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_wh.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
 		maxZeroing = 1500;  //changed from 600
 		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
-		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_Cluster"};
+		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_WP"};
 		modes[] = {"Single"};
 		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
 		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
@@ -446,7 +622,7 @@ class CfgWeapons
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_bk.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
 		maxZeroing = 1500;  //changed from 600
 		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
-		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_Cluster"};
+		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_Cluster","TMR_RPG32_WP"};
 		modes[] = {"Single"};
 		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
 		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
@@ -696,6 +872,9 @@ class SubmunitionGrenade: SubmunitionBullet
 
 	};
 	
+	
+
+	
 	/*class M_RPG32_F: MissileBase
 	{
 		irlock = 0;
@@ -716,9 +895,9 @@ class SubmunitionGrenade: SubmunitionBullet
 	};
 	class R_TBG32V_F: R_PG32V_F
 	{
-		hit = 190;
-		indirectHit = 40;
-		indirectHitRange = 19;
+		hit = 350;
+		indirectHit = 60;
+		indirectHitRange = 20;
 		model = "\A3\weapons_f\launchers\RPG32\tbg32v_rocket.p3d";
 		CraterEffects = "ATMissileCrater";
 		explosioneffects = "TMR_RPG42ThermobaricExplosionEffects";
@@ -731,6 +910,56 @@ class SubmunitionGrenade: SubmunitionBullet
 		indirecthitrange = 5;
 		explosioneffects = "TMR_RPG42SmokeEffects";
 		allowAgainstInfantry = 1;
+	};
+	
+	class FIR_Hydra_WP_Rocket : R_PG32V_F//Rocketbase//MissileBase
+	{
+		cost = 500;
+		hit = 190;
+		indirectHit = 50;
+		indirectHitRange = 17;
+		manualControl = 0;
+		maxControlRange = 0;
+		airLock = 0;
+		irLock = 0;
+		laserLock = 0;
+		nvLock = 0;
+		weaponLockSystem = 0;
+		cmimmunity = 1;
+		fuseDistance = 50;
+		timeToLive = 60;
+		explosioneffects = "FIR_WPExplosion";
+		model = "\A3\weapons_f\launchers\RPG32\pg32v_rocket.p3d";
+		FIR_AWS_WP = 1;
+		whistleDist = 30;
+		class CamShakeExplode
+		{
+			power = 16;
+			duration = 1.8;
+			frequency = 20;
+			distance = 191.554;
+		};
+		class CamShakeHit
+		{
+			power = 80;
+			duration = 0.6;
+			frequency = 20;
+			distance = 1;
+		};
+		class CamShakeFire
+		{
+			power = 2.9907;
+			duration = 1.8;
+			frequency = 20;
+			distance = 71.5542;
+		};
+		class CamShakePlayerFire
+		{
+			power = 2;
+			duration = 0.1;
+			frequency = 20;
+			distance = 1;
+		};
 	};
 
 
@@ -794,9 +1023,21 @@ class CfgMagazines
 	class TMR_RPG32_Cluster: RPG32_F
 	{
 		ammo = "Cluster_Grenade";
-		displayname = "DG-42V Submunition Rocket";
+		displayname = "DG-42SV Submunition Rocket";
 		displaynameshort = "Cluster";
 		descriptionshort = "Type: 105mm Cluster/submunition rocket<br />Used in: RPG-42";
+	};
+	
+	class TMR_RPG32_WP: RPG32_F
+	{
+		scope = 2;
+		displayName = "DG-42WP White Phosphorus Rocket";
+		displayNameShort = "White Phosphorus";
+		ammo = "FIR_Hydra_WP_Rocket";
+		count = 1;
+		//maxLeadSpeed = 300;
+		mass = 30;
+			
 	};
 	
 	
