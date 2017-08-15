@@ -1,0 +1,71 @@
+111SOG WEAPONS MOD V1.1
+
+Added 111SOG KelTec BLACK
+Added 111SOG KelTec GREEN
+
+Added 111SOG 408 Rifle
+
+Added 111SOG TAZER
+
+New Class AMMO 111SOG .408
+New Class AMMO 12ga STUN
+New Class AMMO 12ga Tungsten Slug Sabot
+New Class AMMO 12ga Tungsten Flechettes
+New Class AMMO 12ga PPA
+
+New Class AMMO Tazer Cartridge
+
+Added Full Auto Firemode to MK18 
+
+
+
+
+
+----------------------------------
+111SOG WEAPONS MOD V1
+
+Added 111SOG KRS M14 WOOD
+Added 111SOG KRS M14 SNOW
+Added 111SOG KRS M14 BLACK
+Added 111SOG KRS M14 GREEN
+
+Added 111SOG M14EMR BLACK
+Added 111SOG M14EMR GREY/SILVER
+Added 111SOG M14EMR TAN
+Added 111SOG M14EMR Muzzel Flash Attachments
+Added 111SOG M14EMR RHS Silencer Attachments
+
+
+Added 111SOG MK1 BEOWULF BLACK
+Added 111SOG MK1 BEOWULF WHITE
+Added 111SOG MK1 BEOWULF TAN
+Added 111SOG MK1 BEOWULF GREEN
+
+Added 111SOG RPG32 WHITE CAMO
+Added 111SOG RPG32 BLACK 
+
+Added 111SOG UTS-15 BLACK
+Added 111SOG UTS-15 GREY
+Added 111SOG UTS-15 JUNGLE
+Added 111SOG UTS-15 DESERT
+
+------------------------------------
+
+NEW Class AMMO 111SOG UTS-15 AMMO VARIANTS (slug, Buck, HE)
+NEW Class AMMO 111SOG .50 Beowulf 
+NEW Class AMMO 111SOG RPG-32 ROCKETS (HE2, Thermobaric, White Phosphorus, Submunition, Smoke)
+
+-----------------------------------
+
+NEW Classes Particles for RPG32
+NEW Classes Particles for UTS-15 HE
+
+-----------------------------------
+CHANGED MaxZero RANGE DISTANCE >1400M RPG32
+
+Added 111SOG M320 Silencer BLACK
+Added 111SOG M320 Silencer TAN
+Added 111SOG MK1 BEOWULF Muzzel Flash Attachments
+Added 111SOG MK1 BEOWULF Muzzel Silencer Attachments
+
+

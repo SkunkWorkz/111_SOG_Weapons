@@ -1,37 +1,22 @@
+#include "BIS_AddonInfo.hpp"
 class CfgPatches
 {
 	class 111_WEAPONS
 	{
 			
-		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_Mark","A3_Anims_F","A3_Anims_F_Config_Sdr","A3_Weapons_F_Acc","A3_Weapons_F_beta","A3_Weapons_F_EBR","rhsusf_c_weapons","rhsusf_weapons2","A3_UI_F"};
+		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_Mark","A3_Anims_F","A3_Anims_F_Config_Sdr","A3_Weapons_F_Acc","A3_Weapons_F_beta","A3_Weapons_F_EBR","rhsusf_c_weapons","rhsusf_weapons2","A3_UI_F","KA_KSG"};
 		requiredVersion = 0.1;
 		units[] = {"111SOG_Rifle_Box"};
-		weapons[] = {"111SOG_KRS_M14_BLK","111SOG_KRS_M14_TAN","111SOG_KRS_M14_ARCTIC","111SOG_KRS_M14_WOOD","srifle_LRR_F","111SOG_EBR_black_F","111SOG_EBR_DE_F","111SOG_EBR_GR_F","111SOG_MK1_Beowulf","111SOG_MK1_Beowulf_w","111SOG_MK1_Beowulf_od","111SOG_MK1_Beowulf_fde","111SOG_RPG32_wh","111SOG_RPG32_bk"};
-		magazines[] = {"20rnd_Beowulf_magazine"};
-		ammo[] = {"Beowulf_ball"};
+		weapons[] = {"111SOG_KRS_M14_BLK","111SOG_KRS_M14_TAN","111SOG_KRS_M14_ARCTIC","111SOG_KRS_M14_WOOD","srifle_LRR_F","111SOG_EBR_black_F","111SOG_EBR_DE_F","111SOG_EBR_GR_F","111SOG_MK1_Beowulf","111SOG_MK1_Beowulf_w","111SOG_MK1_Beowulf_od","111SOG_MK1_Beowulf_fde","111SOG_RPG32_wh","111SOG_RPG32_bk","111SOG_M200_BLK"};
+		magazines[] = {"20rnd_Beowulf_magazine","7rnd_sogM200_magazine","111_SOG_10Rnd_Buck_Tungsten","111_SOG_10Rnd_Slug_Tungsten","CSW_CAWS_10Rnd_Stun"};
+		ammo[] = {"Beowulf_ball","sogM200_ball","CSW_CAWS_Tungsten_Slug","CSW_CAWS_Tungsten_Buck","CSW_CAWS_Stun"};
 	};
 };
 
 
 //-------------------------------------ADDING EVENTHANDLERS---------------------------------//
 
-/*class Extended_PostInit_EventHandlers
-{
-	class tmr_rpg42
-	{
-		clientInit = "call compile preProcessFileLineNumbers '\tmr_rpg42\init.sqf'";
-	};
-};
-class Extended_FiredBIS_EventHandlers
-{
-	class CAManBase
-	{
-		class tmr_rpg42
-		{
-			clientFiredBIS = "_this call tmr_rpg42_fnc_rpg42_firedEH";
-		};
-	};
-};*/
+
 class TMR_RPG42SmokeEffects
 {
 	class LightExpSmall
@@ -388,10 +373,7 @@ class CfgCloudlets
 		coreDistance = 20.000000;
 		damageTime = 2.100000;
 		constantDistance = 10.000000;
-		damageType = "Fire";
-		//coreIntensity = 3;  //damage coeficient in the center of fire
-		//coreDistance = 19.0;     //how far can unit get damage
-		//damageTime = 4;   
+		damageType = "Fire"; 
 	};
 };
 
@@ -435,6 +417,7 @@ class CfgWeapons
 	class LRR_base_F: Rifle_Long_Base_F       //LRR
 	{
 		class WeaponSlotsInfo;
+		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
 		class Single: Mode_SemiAuto
 		{
 			sounds[] = {"StandardSound","SilencedSound"};
@@ -538,6 +521,7 @@ class CfgWeapons
 	//------------------------------------------408----------------------------------------//
 	class srifle_LRR_F: LRR_base_F
 	{
+		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
 		class WeaponSlotsInfo: WeaponSlotsInfo
 		{
 			class MuzzleSlot: MuzzleSlot
@@ -548,6 +532,15 @@ class CfgWeapons
 				iconScale = 0.2;
 			};
 		};
+	};
+	class srifle_LRR_SOS_F: srifle_LRR_F {};
+	class 111SOG_M200_BLK: srifle_LRR_SOS_F
+	{
+		author = "SHRIKE";
+		scope = 2;
+		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
+		displayName = "111SOG M200 Intervention(BLK)";
+		picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
 	};
 	//-----------------------------------------EBR------------------------------------------//
 	class srifle_EBR_F: EBR_base_F
@@ -571,6 +564,7 @@ class CfgWeapons
 		baseWeapon = "111SOG_EBR_black_F";
 		displayName = "111SOG Mk14 EBR 7.62 mm (Black)";
 		scope = 2;
+		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_black_co.paa","\111_SOG_WEAPONS\data\ebr02_black_co.paa"};
 		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
@@ -582,6 +576,7 @@ class CfgWeapons
 		baseWeapon = "111SOG_EBR_AOR1_F";
 		displayName = "111SOG Mk14 EBR 7.62 mm (DE)";
 		scope = 2;
+		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_AOR1_co.paa","\111_SOG_WEAPONS\data\ebr02_AOR1_co.paa"};
 		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
@@ -593,6 +588,7 @@ class CfgWeapons
 		baseWeapon = "111SOG_EBR_AOR1_F";
 		displayName = "111SOG Mk14 EBR 7.62 mm (Grey)";
 		scope = 2;
+		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
 		hiddenSelections[] = {"camo1","camo2"};
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_gry_co.paa","\111_SOG_WEAPONS\data\ebr02_gry_co.paa"};
 		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
@@ -626,7 +622,7 @@ class CfgWeapons
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_bk.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
 		maxZeroing = 1500;  //changed from 600
 		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
-		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_Cluster","TMR_RPG32_WP"};
+		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_WP"};
 		modes[] = {"Single"};
 		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
 		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
@@ -701,17 +697,6 @@ class CfgWeapons
 		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_fde_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_fde_CO.paa"};
 	};
 	
-	
-	
-	
-
-	
-	
-
-	
-	
-	
-	
 
 };
 
@@ -770,7 +755,112 @@ class CfgAmmo
 			distance = 1;
 		};
 	};
-
+	class B_408_Ball: BulletBase
+	{
+		hit = 48;
+	};
+	
+	class sogM200_ball: B_408_Ball
+	{
+		hit = 50;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		model = "\A3\Weapons_f\Data\bullettracer\tracer_yellow";
+		tracerScale = 0.6;
+		tracerStartTime = 0.0075;
+		tracerEndTime = 5;
+		visibleFire = 6;
+		audibleFire = 9;
+		class CamShakeExplode
+		{
+			power = "(8^0.5)";
+			duration = "((round (8^0.5))*0.2 max 0.2)";
+			frequency = 20;
+			distance = "((8^0.5)*3)";
+		};
+		class CamShakeHit
+		{
+			power = 8;
+			duration = "((round (5^0.25))*0.2 max 0.2)";
+			frequency = 20;
+			distance = 1;
+		};
+	};
+//////------SHOTGUNSHELLS----//////	
+	
+	class CSW_CAWS_Tungsten_Buck: BulletBase
+	{
+		simulation = "shotSpread";
+		hit = 7;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		cartridge = "FxCartridge_127";
+		cost = 2;
+		typicalSpeed = 538;
+		visibleFire = 18;
+		audibleFire = 18;
+		airFriction = -0.004;
+		caliber = 0.5;
+		class CamShakeFire
+		{
+			power = 3;
+			duration = 0.5;
+			frequency = 20;
+			distance = 30;
+		};
+		class CamShakePlayerFire
+		{
+			power = 0.15;
+			duration = 0.1;
+			frequency = 20;
+		};
+	};
+	class CSW_CAWS_Tungsten_Slug: BulletBase
+	{
+		hit = 14.5;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		cartridge = "FxCartridge_127";
+		cost = 2;
+		typicalSpeed = 807;
+		visibleFire = 18;
+		audibleFire = 18;
+		airFriction = -0.004;
+		caliber = 3.1;
+		class CamShakeFire
+		{
+			power = 3;
+			duration = 0.5;
+			frequency = 20;
+			distance = 30;
+		};
+		class CamShakePlayerFire
+		{
+			power = 0.15;
+			duration = 0.1;
+			frequency = 20;
+		};
+	};
+	class CSW_CAWS_Stun: BulletBase
+	{
+		hit = 0.5;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		deflecting = 15;
+		cartridge = "FxCartridge_slug";
+		typicalSpeed = 600;
+		airFriction = -0.005;
+		timeToLive = 0.57;
+		caliber = 0.3;
+		class CamShakeHit
+		{
+			power = 1100;
+			duration = "((round (1100^0.25))*0.2 max 0.2)";
+			frequency = 100;
+			distance = 100;
+		};
+	};
+	
 
 
 class SubmunitionGrenade: SubmunitionBullet
@@ -806,90 +896,12 @@ class SubmunitionGrenade: SubmunitionBullet
 		};
 	};
 
-	class 111SOG_cluster_AP: BulletCore
-	{
 
-		model="\A3\weapons_f\ammo\flare_red";
-		hit=10;
-		indirectHit=5;
-		indirectHitRange=7;
-		timeToLive=20;
-		initTime=0;
-		explosive=1;
-		//explosionTime=.005;
-		typicalspeed=100;
-		//fuseDistance=.01;
-		EffectFly="";
-		explosionSoundEffect="DefaultExplosion";
-		CraterEffects="GrenadeCrater";
-		CraterWaterEffects="ImpactEffectsWaterExplosion";
-		explosionEffects="GrenadeExplosion";
-		allowAgainstInfantry=1;
-		aiAmmoUsageFlags = 64;
-		soundHit[]=
-		{
-			"\111_SOG_WEAPONS\sounds\Cluster_1",
-			10,
-			1.1,
-			1500
-		};
-		//EffectFly="ArtilleryTrails";
-	};
-
-	class Cluster_Grenade: SubmunitionGrenade
-	{
-		author="Shrike88";
-		scope=2;
-		displayName="111SOG Submunition Gernade";
-		picture="\A3\Weapons_F\Data\UI\gear_mine_AP_tripwire_CA.paa";
-		model="\A3\Weapons_F\explosives\mine_AP_tripwire_i";
-		//simulation="shotShell";
-		hit=10;
-		indirectHit=10;
-		indirectHitRange=16;
-		explosive= 1;
-		timeToLive = 25;
-		fuseDistance=.01;
-		allowAgainstInfantry=1;
-		typicalspeed=200;
-		aiAmmoUsageFlags = 64;
-		CraterEffects="GrenadeCrater";
-		CraterWaterEffects="ImpactEffectsWaterExplosion";
-		explosionEffects="GrenadeExplosion";
-		soundHit[]=
-		{
-			"\111_SOG_WEAPONS\sounds\C_sep_1",
-			8.2589254,
-			.09,
-			1000
-		};
-		submunitionAmmo="111SOG_cluster_AP";
-		submunitionConeType[]=
-		{
-			"random",
-			10
-		};
-		submunitionConeAngle=7;
-		cost=200;
-		airFriction=0;
-
-
-	};
 	
 	
 
 	
-	/*class M_RPG32_F: MissileBase
-	{
-		irlock = 0;
-		canLock = 0;
-		fuseDistance = 7;
-		timetolive = 20;
-		hit = 550;
-		indirecthit = 29;
-		indirecthitrange = 7;
-		model = "\A3\weapons_f\launchers\RPG32\pg32v_rocket.p3d";
-	};*/
+
 	class R_PG32V_F: RocketBase
 	{
 		hit = 550;
@@ -978,14 +990,15 @@ class CfgMagazines
 {
 	class Default;
 	class CA_Magazine;
+	class 7Rnd_408_Mag: CA_Magazine{};
 	class CA_LauncherMagazine;
 	class 20rnd_Beowulf_magazine: CA_Magazine
 	{
 		scope = 2;
 		displayName = "20Rnd Beowulf Magazine";
-		picture = "\kio_sr25\Data\gear\gear_sr25_magazine_x_ca.paa";
+		picture = "\A3\weapons_f\data\UI\M_20Rnd_762x51_CA.paa";
 		ammo = "Beowulf_ball";
-		model = "\kio_sr25\magazine.p3d";
+		model = "\A3\weapons_F\ammo\mag_univ.p3d";
 		count = 20;
 		initSpeed = 600;
 		tracersEvery = 0;
@@ -993,6 +1006,67 @@ class CfgMagazines
 		descriptionShort = "20-round detachable box magazine";
 		mass = 24.00;
 	};
+	class 7rnd_sogM200_magazine: 7Rnd_408_Mag
+	{
+		scope = 2;
+		author = "SHRIKE";
+		displayName = "7Rnd SOG 402gr M200 Magazine";
+		picture = "\A3\weapons_f\data\UI\m_M24_CA.paa";
+		ammo = "sogM200_ball";
+		model = "\A3\weapons_F\ammo\mag_univ.p3d";
+		count = 7;
+		//initSpeed = 1700;
+		tracersEvery = 0;
+		lastRoundsTracer = 5;
+		descriptionShort = "7-round detachable box magazine";
+		mass = 24.00;
+	};
+	
+	
+	class 111_SOG_10Rnd_Buck_Tungsten: CA_Magazine
+	{
+		scope = 6;
+		displayName = "12 Gauge 10Rnd Buck Tungsten";
+		displayNameShort = "Buckshot Tungsten";
+		descriptionShort = "Caliber: 12 Gauge<br/>Rounds: 10<br/>Used in: CAWS";
+		picture = "\111_SOG_WEAPONS\UI\111_SOG_Buck_Tungsten.paa";
+		author = "Shrike";
+		model = "\KA_KSG\KA_KSG_ammo_buck.p3d";
+		ammo = "CSW_CAWS_Tungsten_Buck";
+		count = 7;
+		mass = 7;
+		initspeed = 538;
+	};
+	class 111_SOG_10Rnd_Slug_Tungsten: CA_Magazine
+	{
+		scope = 6;
+		displayName = "12 Gauge 10Rnd Slug Tungsten";
+		displayNameShort = "Slug Tungsten";
+		descriptionShort = "Caliber: 12 Gauge<br/>Rounds: 10<br/>Used in: CAWS";
+		picture = "\111_SOG_WEAPONS\UI\111_SOG_Slug_Tungsten.paa";
+		author = "Shrike";
+		model = "\KA_KSG\KA_KSG_ammo_slug.p3d";
+		ammo = "CSW_CAWS_Tungsten_Slug";
+		count = 7;
+		mass = 7;
+		initspeed = 807;
+	};
+	class CSW_CAWS_10Rnd_Stun: CA_Magazine
+	{
+		scope = 6;
+		displayName = "12 Gauge 10Rnd Stun";
+		displayNameShort = "Stun";
+		descriptionShort = "Caliber: 12 Gauge<br/>Rounds: 10<br/>Used in: CAWS";
+		picture = "\111_SOG_WEAPONS\UI\111_SOG_Stun.paa";
+		author = "Shrike";
+		model = "\KA_KSG\KA_KSG_ammo_slug.p3d";
+		ammo = "CSW_CAWS_Stun";
+		count = 7;
+		mass = 7;
+		initspeed = 600;
+	};
+	
+	
 	
 	
 	
@@ -1044,33 +1118,6 @@ class CfgMagazines
 			
 	};
 	
-	
-	class Grenade_cluster: CA_Magazine
-	{
-		mass=10;
-		scope=2;
-		value=1;
-		displayName="111SOG Submunition Grenade";
-		picture="\A3\Weapons_F\Data\UI\gear_mine_AP_tripwire_CA.paa";
-		model="\A3\Weapons_F\explosives\mine_AP_tripwire_i";
-		type=256;
-		ammo="Cluster_Grenade";
-		count=1;
-		initSpeed=70;
-		//nameSoundWeapon="satchelcharge";
-		nameSound="handgrenade";
-		maxLeadSpeed=140;
-		allowAgainstInfantry=1;
-		sound[]=
-		{
-			"A3\Sounds_F\weapons\mines\electron_trigger_1",
-			0.56234133,
-			1,
-			50
-		};
-		descriptionShort="Cluster Grenade for clearing mines or infantry";
-		displayNameShort="M124Grd";
-	};
 	
 	
 };
@@ -1169,11 +1216,6 @@ class CfgVehicles
 			{
 				name = "optic_Arco";
 				count = 5;
-			};
-			class _xx_Grenade_cluster
-			{
-				magazine="Grenade_cluster";
-				count=5;
 			};
 		};
 	};
