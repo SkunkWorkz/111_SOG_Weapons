@@ -377,334 +377,6 @@ class CfgCloudlets
 	};
 };
 
-
-
-//------------------------------------------------------|||WEAPONS|||---------------------------------
-
-
-class Mode_SemiAuto;
-class Mode_Burst;
-class Mode_FullAuto;
-class SlotInfo;
-class MuzzleSlot;
-class CowsSlot;
-class PointerSlot;
-class UnderBarrelSlot;
-class ItemCore;
-class InventoryMuzzleItem_Base_F;
-
-
-class CfgWeapons
-
-{
-	class Launcher_Base_F; 
-	class launch_RPG32_F: Launcher_Base_F {}; //RPG32
-	class GrenadeLauncher;
-	class Rifle_Base_F
-	{
-		class WeaponSlotsInfo;
-		class GunParticles;
-	};
-	class Rifle_Long_Base_F: Rifle_Base_F
-	{
-		class WeaponSlotsInfo;
-	};
-	
-	class UGL_F;
-	//Base Rifles
-	class DMR_06_base_F: Rifle_Long_Base_F {};//M14
-	class EBR_base_F: Rifle_Long_Base_F {};   //M14EBR
-	class LRR_base_F: Rifle_Long_Base_F       //LRR
-	{
-		class WeaponSlotsInfo;
-		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
-		class Single: Mode_SemiAuto
-		{
-			sounds[] = {"StandardSound","SilencedSound"};
-			class BaseSoundModeType;
-			class SilencedSound: BaseSoundModeType
-			{
-				begin1[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_short_01",1.0,1,300};
-				begin2[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_short_02",1.0,1,300};
-				begin3[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_short_03",1.0,1,300};
-				soundBegin[] = {"begin1",0.333,"begin2",0.333,"begin3",0.333};
-				class SoundTails
-				{
-					class TailInterior
-					{
-						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_interior",1.0,1,300};
-						frequency = 1;
-						volume = "interior";
-					};
-					class TailTrees
-					{
-						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_trees",1.0,1,300};
-						frequency = 1;
-						volume = "(1-interior/1.4)*trees";
-					};
-					class TailForest
-					{
-						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_forest",1.0,1,300};
-						frequency = 1;
-						volume = "(1-interior/1.4)*forest";
-					};
-					class TailMeadows
-					{
-						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_meadows",1.0,1,300};
-						frequency = 1;
-						volume = "(1-interior/1.4)*(meadows/2 max sea/2)";
-					};
-					class TailHouses
-					{
-						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_houses",1.0,1,300};
-						frequency = 1;
-						volume = "(1-interior/1.4)*houses";
-					};
-				};
-			};
-		};
-	};
-
-	//-----------------------------------------------M14--------------------------------------//
-	class srifle_DMR_06_camo_F: DMR_06_base_F
-	{
-		scope = 0;
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot: MuzzleSlot
-			{
-				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[] = {"muzzle_snds_B","rhsusf_acc_rotex5_tan"};
-				iconPosition[] = {0.0,0.43};
-				iconScale = 0.2;
-			};
-		};
-	};
-	
-	class 111SOG_KRS_M14_BLK: srifle_DMR_06_camo_F
-	{
-		author = "Krossin";
-		scope = 2;
-		displayName = "111SOG M14 (BLK)";
-		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_blk_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
-	};
-	class 111SOG_KRS_M14_TAN: srifle_DMR_06_camo_F
-	{
-		author = "Krossin";
-		scope = 2;
-		displayName = "111SOG M14 (Desert)";
-		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_desert_co.paa","\111_SOG_WEAPONS\Data\dmr_metal_tan_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
-	};
-	class 111SOG_KRS_M14_ARCTIC: srifle_DMR_06_camo_F
-	{
-		author = "Krossin";
-		scope = 2;
-		displayName = "111SOG M14 (Arctic)";
-		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_arctic_co.paa","\111_SOG_WEAPONS\Data\dmr_metal_wht_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
-	};
-	class 111SOG_KRS_M14_WOOD: srifle_DMR_06_camo_F
-	{
-		author = "Krossin";
-		scope = 2;
-		displayName = "111SOG M14 (Wood)";
-		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_wood_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
-	};
-	
-	//------------------------------------------408----------------------------------------//
-	class srifle_LRR_F: LRR_base_F
-	{
-		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot: MuzzleSlot
-			{
-				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan"};
-				iconPosition[] = {0.0,0.43};
-				iconScale = 0.2;
-			};
-		};
-	};
-	class srifle_LRR_SOS_F: srifle_LRR_F {};
-	class 111SOG_M200_BLK: srifle_LRR_SOS_F
-	{
-		author = "SHRIKE";
-		scope = 2;
-		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
-		displayName = "111SOG M200 Intervention(BLK)";
-		picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
-	};
-	//-----------------------------------------EBR------------------------------------------//
-	class srifle_EBR_F: EBR_base_F
-	{
-		scope = 0;
-		class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			class MuzzleSlot: MuzzleSlot
-			{
-				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan","muzzle_snds_H_MG","muzzle_snds_H_SW","muzzle_snds_L","rhs_acc_pbs1", "rhs_acc_dtk3", "rhs_acc_dtk1", "rhs_acc_dtk", "rhs_acc_dtk4long", "rhs_acc_dtk4screws", "rhs_acc_ak5"};
-				iconPosition[] = {0.0,0.43};
-				iconScale = 0.2;
-			};
-		};
-        class GunParticles;
-    };
-	class 111SOG_EBR_black_F: srifle_EBR_F
-	{
-		author = "Shrike";
-		baseWeapon = "111SOG_EBR_black_F";
-		displayName = "111SOG Mk14 EBR 7.62 mm (Black)";
-		scope = 2;
-		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_black_co.paa","\111_SOG_WEAPONS\data\ebr02_black_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
-		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
-	};
-	class 111SOG_EBR_DE_F: srifle_EBR_F
-	{
-		author = "Shrike";
-		baseWeapon = "111SOG_EBR_AOR1_F";
-		displayName = "111SOG Mk14 EBR 7.62 mm (DE)";
-		scope = 2;
-		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_AOR1_co.paa","\111_SOG_WEAPONS\data\ebr02_AOR1_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
-		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
-	};
-	class 111SOG_EBR_GR_F: srifle_EBR_F
-	{
-		author = "Shrike";
-		baseWeapon = "111SOG_EBR_AOR1_F";
-		displayName = "111SOG Mk14 EBR 7.62 mm (Grey)";
-		scope = 2;
-		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_gry_co.paa","\111_SOG_WEAPONS\data\ebr02_gry_co.paa"};
-		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
-		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
-	};
-	//---------------------------------------LOKI LAUNCHER-------------------------------------------------------------//
-	class 111SOG_RPG32_wh: launch_RPG32_F
-	{
-		author = "Loki";
-		displayName = "111SOG RPG 42 (White)";
-		hiddenSelections[] = {"Camo_1","Camo_2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_wh.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
-		maxZeroing = 1500;  //changed from 600
-		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
-		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_WP"};
-		modes[] = {"Single"};
-		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
-		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
-		soundFly[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Fly_RPG32",0.316228,1.5,900};
-		canLock = 1;
-		lockAcquire = 1;
-		descriptionShort = "Rocket Launcher";
-		
-	};
-	
-	class 111SOG_RPG32_bk: launch_RPG32_F
-	{
-		author = "Loki";
-		displayName = "111SOG RPG 42 (Black)";
-		hiddenSelections[] = {"Camo_1","Camo_2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_bk.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
-		maxZeroing = 1500;  //changed from 600
-		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
-		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_WP"};
-		modes[] = {"Single"};
-		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
-		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
-		soundFly[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Fly_RPG32",0.316228,1.5,900};
-		canLock = 1;
-		lockAcquire = 1;
-		descriptionShort = "Rocket Launcher";
-		
-	};
-	
-	
-
-	
-//-----------------------------------MK-1EMR Beowulf------------------------------//
-	
-	class srifle_DMR_03_F
-	{
-		class WeaponSlotsInfo
-		{
-			class MuzzleSlot
-			{
-				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan","muzzle_snds_H_MG","muzzle_snds_H_SW","muzzle_snds_L","rhs_acc_pbs1", "rhs_acc_dtk3", "rhs_acc_dtk1", "rhs_acc_dtk", "rhs_acc_dtk4long", "rhs_acc_dtk4screws", "rhs_acc_ak5"};
-				iconPosition[] = {0.0,0.0};//.43
-				iconScale = 0.2;
-			};
-		};
-        class GunParticles;
-    };
-	
-	class 111SOG_MK1_Beowulf: srifle_DMR_03_F
-	{
-		author = "Shrike & Dagger";
-		scope = 2;
-		recoil = "recoil_dmr_05";
-		displayName = "111SOG EMR Beowulf (Black)";
-		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_black_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_black_CO.paa"};
-	};
-	
-	class 111SOG_MK1_Beowulf_w: srifle_DMR_03_F
-	{
-		author = "Shrike & Dagger";
-		scope = 2;
-		recoil = "recoil_dmr_05";
-		displayName = "111SOG EMR Beowulf (White)";
-		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_wht_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_wht_CO.paa"};
-	};
-	
-	class 111SOG_MK1_Beowulf_od: srifle_DMR_03_F
-	{
-		author = "Shrike & Dagger";
-		scope = 2;
-		recoil = "recoil_dmr_05";
-		displayName = "111SOG EMR Beowulf (OD)";
-		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_od_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_od_CO.paa"};
-	};
-	
-	class 111SOG_MK1_Beowulf_fde: srifle_DMR_03_F
-	{
-		author = "Shrike & Dagger";
-		scope = 2;
-		recoil = "recoil_dmr_05";
-		displayName = "111SOG EMR Beowulf (FDE)";
-		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
-		hiddenSelections[] = {"camo1","camo2"};
-		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_fde_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_fde_CO.paa"};
-	};
-	
-
-};
-
-
-
-
-
-
 //----------------------------------------------NEW AMMO CLASS------------------------------//
 
 class CfgAmmo
@@ -1117,10 +789,341 @@ class CfgMagazines
 		mass = 30;
 			
 	};
-	
-	
-	
 };
+
+//------------------------------------------------------|||WEAPONS|||---------------------------------
+
+
+class Mode_SemiAuto;
+class Mode_Burst;
+class Mode_FullAuto;
+class SlotInfo;
+class MuzzleSlot;
+class CowsSlot;
+class PointerSlot;
+class UnderBarrelSlot;
+class ItemCore;
+class InventoryMuzzleItem_Base_F;
+
+
+class CfgWeapons
+
+{
+	class Launcher_Base_F; 
+	class launch_RPG32_F: Launcher_Base_F {}; //RPG32
+	class GrenadeLauncher;
+	class Rifle_Base_F
+	{
+		class WeaponSlotsInfo;
+		class GunParticles;
+	};
+	class Rifle_Long_Base_F: Rifle_Base_F
+	{
+		class WeaponSlotsInfo;
+	};
+	
+	class UGL_F;
+	//Base Rifles
+	class DMR_06_base_F: Rifle_Long_Base_F {};//M14
+	class EBR_base_F: Rifle_Long_Base_F {};   //M14EBR
+	class LRR_base_F: Rifle_Long_Base_F       //LRR
+	{
+		class WeaponSlotsInfo;
+		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
+		class Single: Mode_SemiAuto
+		{
+			sounds[] = {"StandardSound","SilencedSound"};
+			class BaseSoundModeType;
+			class SilencedSound: BaseSoundModeType
+			{
+				begin1[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_short_01",1.0,1,300};
+				begin2[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_short_02",1.0,1,300};
+				begin3[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_short_03",1.0,1,300};
+				soundBegin[] = {"begin1",0.333,"begin2",0.333,"begin3",0.333};
+				class SoundTails
+				{
+					class TailInterior
+					{
+						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_interior",1.0,1,300};
+						frequency = 1;
+						volume = "interior";
+					};
+					class TailTrees
+					{
+						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_trees",1.0,1,300};
+						frequency = 1;
+						volume = "(1-interior/1.4)*trees";
+					};
+					class TailForest
+					{
+						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_forest",1.0,1,300};
+						frequency = 1;
+						volume = "(1-interior/1.4)*forest";
+					};
+					class TailMeadows
+					{
+						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_meadows",1.0,1,300};
+						frequency = 1;
+						volume = "(1-interior/1.4)*(meadows/2 max sea/2)";
+					};
+					class TailHouses
+					{
+						sound[] = {"A3\Sounds_F_Mark\arsenal\weapons\LongRangeRifles\DMR_05_Cyrus\silencer_DMR_05_tail_houses",1.0,1,300};
+						frequency = 1;
+						volume = "(1-interior/1.4)*houses";
+					};
+				};
+			};
+		};
+	};
+
+	//-----------------------------------------------M14--------------------------------------//
+	class srifle_DMR_06_camo_F: DMR_06_base_F
+	{
+		scope = 0;
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			class MuzzleSlot: MuzzleSlot
+			{
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleItems[] = {"muzzle_snds_B","rhsusf_acc_rotex5_tan"};
+				iconPosition[] = {0.0,0.43};
+				iconScale = 0.2;
+			};
+		};
+	};
+	
+	class 111SOG_KRS_M14_BLK: srifle_DMR_06_camo_F
+	{
+		author = "Krossin";
+		scope = 2;
+		displayName = "111SOG M14 (BLK)";
+		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_blk_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
+	};
+	class 111SOG_KRS_M14_TAN: srifle_DMR_06_camo_F
+	{
+		author = "Krossin";
+		scope = 2;
+		displayName = "111SOG M14 (Desert)";
+		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_desert_co.paa","\111_SOG_WEAPONS\Data\dmr_metal_tan_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
+	};
+	class 111SOG_KRS_M14_ARCTIC: srifle_DMR_06_camo_F
+	{
+		author = "Krossin";
+		scope = 2;
+		displayName = "111SOG M14 (Arctic)";
+		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_arctic_co.paa","\111_SOG_WEAPONS\Data\dmr_metal_wht_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
+	};
+	class 111SOG_KRS_M14_WOOD: srifle_DMR_06_camo_F
+	{
+		author = "Krossin";
+		scope = 2;
+		displayName = "111SOG M14 (Wood)";
+		picture = "\A3\Weapons_F_Mark\LongRangeRifles\DMR_06\Data\UI\gear_DMR_06_olive_X_CA.paa";
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\Data\dmr_wood_co.paa","\111_SOG_WEAPONS\Data\111_dmr_06_02_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\dmr_06_01.rvmat","\111_SOG_WEAPONS\data\dmr_06_02.rvmat"};
+	};
+	
+	//------------------------------------------408----------------------------------------//
+	class srifle_LRR_F: LRR_base_F
+	{
+		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			class MuzzleSlot: MuzzleSlot
+			{
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan"};
+				iconPosition[] = {0.0,0.43};
+				iconScale = 0.2;
+			};
+		};
+	};
+	//class srifle_LRR_LRPS_F: srifle_LRR_F {};
+	class srifle_LRR_camo_F: srifle_LRR_F {};
+	//class srifle_LRR_camo_SOS_F: srifle_LRR_camo_F{};
+	//class 111SOG_M200_BLK: srifle_LRR_camo_SOS_F
+	class 111SOG_M200_BLK: srifle_LRR_camo_F
+	{
+		author = "SHRIKE";
+		_generalMacro = "srifle_LRR_F";
+		scope = 2;
+		baseWeapon = "srifle_LRR_F";
+		model = "\A3\Weapons_F\LongRangeRifles\M320\M320_F.p3d";
+		picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
+		UiPicture = "\A3\weapons_f\data\UI\icon_sniper_CA.paa";
+		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
+		hiddenSelections[] = {"camo"};
+		hiddenSelectionsTextures[] = {"\a3\weapons_f_bootcamp\longrangerifles\m320_camo\data\cheytac_m200_blufor_co.paa"};
+		displayName = "111SOG M200 Intervention(BLK)";
+		ACE_barrelTwist = 330.2;
+		ACE_barrelLength = 736.6;
+		
+	};
+	//-----------------------------------------EBR------------------------------------------//
+	class srifle_EBR_F: EBR_base_F
+	{
+		scope = 0;
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			class MuzzleSlot: MuzzleSlot
+			{
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan","muzzle_snds_H_MG","muzzle_snds_H_SW","muzzle_snds_L","rhs_acc_pbs1", "rhs_acc_dtk3", "rhs_acc_dtk1", "rhs_acc_dtk", "rhs_acc_dtk4long", "rhs_acc_dtk4screws", "rhs_acc_ak5"};
+				iconPosition[] = {0.0,0.43};
+				iconScale = 0.2;
+			};
+		};
+        class GunParticles;
+    };
+	class 111SOG_EBR_black_F: srifle_EBR_F
+	{
+		author = "Shrike";
+		baseWeapon = "111SOG_EBR_black_F";
+		displayName = "111SOG Mk14 EBR 7.62 mm (Black)";
+		scope = 2;
+		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_black_co.paa","\111_SOG_WEAPONS\data\ebr02_black_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
+		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
+	};
+	class 111SOG_EBR_DE_F: srifle_EBR_F
+	{
+		author = "Shrike";
+		baseWeapon = "111SOG_EBR_AOR1_F";
+		displayName = "111SOG Mk14 EBR 7.62 mm (DE)";
+		scope = 2;
+		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_AOR1_co.paa","\111_SOG_WEAPONS\data\ebr02_AOR1_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
+		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
+	};
+	class 111SOG_EBR_GR_F: srifle_EBR_F
+	{
+		author = "Shrike";
+		baseWeapon = "111SOG_EBR_AOR1_F";
+		displayName = "111SOG Mk14 EBR 7.62 mm (Grey)";
+		scope = 2;
+		modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\ebr01_gry_co.paa","\111_SOG_WEAPONS\data\ebr02_gry_co.paa"};
+		hiddenSelectionsMaterials[] = {"\111_SOG_WEAPONS\data\m14_ebr01.rvmat","\111_SOG_WEAPONS\data\m14_ebr02.rvmat"};
+		magazines[] = {"rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","20Rnd_762x51_Mag"};
+	};
+	//---------------------------------------LOKI LAUNCHER-------------------------------------------------------------//
+	class 111SOG_RPG32_wh: launch_RPG32_F
+	{
+		author = "Loki";
+		displayName = "111SOG RPG 42 (White)";
+		hiddenSelections[] = {"Camo_1","Camo_2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_wh.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
+		maxZeroing = 1500;  //changed from 600
+		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
+		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_WP"};
+		modes[] = {"Single"};
+		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
+		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
+		soundFly[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Fly_RPG32",0.316228,1.5,900};
+		canLock = 1;
+		lockAcquire = 1;
+		descriptionShort = "Rocket Launcher";
+		
+	};
+	
+	class 111SOG_RPG32_bk: launch_RPG32_F
+	{
+		author = "Loki";
+		displayName = "111SOG RPG 42 (Black)";
+		hiddenSelections[] = {"Camo_1","Camo_2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\rpg_32_body_co_bk.paa","\a3\weapons_f\launchers\rpg32\data\rpg_32_optics_co.paa"};
+		maxZeroing = 1500;  //changed from 600
+		modelOptics = "\A3\Weapons_F\acc\reticle_RPG_F";
+		magazines[] = {"RPG32_F","RPG32_HE_F","TMR_RPG32_Smoke_F","TMR_RPG32_TB_F","TMR_RPG32_WP"};
+		modes[] = {"Single"};
+		drySound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Dry_RPG32",0.446684,1,20};
+		reloadMagazineSound[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\reload_RPG32",1,1,10};
+		soundFly[] = {"A3\Sounds_F\arsenal\weapons\Launchers\RPG32\Fly_RPG32",0.316228,1.5,900};
+		canLock = 1;
+		lockAcquire = 1;
+		descriptionShort = "Rocket Launcher";
+		
+	};
+	
+	
+
+	
+//-----------------------------------MK-1EMR Beowulf------------------------------//
+	
+	class srifle_DMR_03_F
+	{
+		class WeaponSlotsInfo
+		{
+			class MuzzleSlot
+			{
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan","muzzle_snds_H_MG","muzzle_snds_H_SW","muzzle_snds_L","rhs_acc_pbs1", "rhs_acc_dtk3", "rhs_acc_dtk1", "rhs_acc_dtk", "rhs_acc_dtk4long", "rhs_acc_dtk4screws", "rhs_acc_ak5"};
+				iconPosition[] = {0.0,0.0};//.43
+				iconScale = 0.2;
+			};
+		};
+        class GunParticles;
+    };
+	
+	class 111SOG_MK1_Beowulf: srifle_DMR_03_F
+	{
+		author = "Shrike & Dagger";
+		scope = 2;
+		recoil = "recoil_dmr_05";
+		displayName = "111SOG EMR Beowulf (Black)";
+		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_black_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_black_CO.paa"};
+	};
+	
+	class 111SOG_MK1_Beowulf_w: srifle_DMR_03_F
+	{
+		author = "Shrike & Dagger";
+		scope = 2;
+		recoil = "recoil_dmr_05";
+		displayName = "111SOG EMR Beowulf (White)";
+		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_wht_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_wht_CO.paa"};
+	};
+	
+	class 111SOG_MK1_Beowulf_od: srifle_DMR_03_F
+	{
+		author = "Shrike & Dagger";
+		scope = 2;
+		recoil = "recoil_dmr_05";
+		displayName = "111SOG EMR Beowulf (OD)";
+		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_od_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_od_CO.paa"};
+	};
+	
+	class 111SOG_MK1_Beowulf_fde: srifle_DMR_03_F
+	{
+		author = "Shrike & Dagger";
+		scope = 2;
+		recoil = "recoil_dmr_05";
+		displayName = "111SOG EMR Beowulf (FDE)";
+		magazines[] = {"rhsusf_mag_10Rnd_STD_50BMG_M33","20rnd_Beowulf_magazine"};
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\111_SOG_WEAPONS\data\DMR_03_01_fde_CO.paa","\111_SOG_WEAPONS\data\DMR_03_02_fde_CO.paa"};
+	};
+	
+
+};
+
 
 //-------------------------------------------WEAPONS BOX---------------------------------//
 
@@ -1220,4 +1223,3 @@ class CfgVehicles
 		};
 	};
 };
-
