@@ -828,8 +828,9 @@ class CfgWeapons
 	class EBR_base_F: Rifle_Long_Base_F {};   //M14EBR
 	class LRR_base_F: Rifle_Long_Base_F       //LRR
 	{
-		class WeaponSlotsInfo;
+		scope = 0;
 		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
+		class WeaponSlotsInfo;
 		class Single: Mode_SemiAuto
 		{
 			sounds[] = {"StandardSound","SilencedSound"};
@@ -945,27 +946,57 @@ class CfgWeapons
 			};
 		};
 	};
-	//class srifle_LRR_LRPS_F: srifle_LRR_F {};
-	class srifle_LRR_camo_F: srifle_LRR_F {};
-	//class srifle_LRR_camo_SOS_F: srifle_LRR_camo_F{};
-	//class 111SOG_M200_BLK: srifle_LRR_camo_SOS_F
-	class 111SOG_M200_BLK: srifle_LRR_camo_F
+	
+	class 111SOG_M200_BLK: srifle_LRR_F
+	{
+		author = "Shrike & Krossin";
+		scope = 2;
+		model = "\A3\Weapons_F\LongRangeRifles\M320\M320_F.p3d";
+		displayName = "111SOG M200 Intervention(BLK)";
+		picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
+		UiPicture = "\A3\weapons_f\data\UI\icon_sniper_CA.paa";
+		hiddenSelections[] = {"camo"};
+		hiddenSelectionsTextures[] = {"\a3\weapons_f_bootcamp\longrangerifles\m320_camo\data\cheytac_m200_blufor_co.paa"};
+		hiddenSelectionsMaterials[] = {"\a3\weapons_f_bootcamp\longrangerifles\m320_camo\data\cheytac_m200_blufor.rvmat"};
+		class Library
+		{
+			libTextDesc = "$STR_A3_CfgWeapons_srifle_LRR_Library0";
+		};
+		class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			mass = 420;
+			class MuzzleSlot{};
+			class CowsSlot: CowsSlot
+			{
+				iconPosition[] = {0.6,0.35};
+				iconScale = 0.2;
+			};
+			class PointerSlot{};
+		};
+		inertia = 1.1;
+		dexterity = 1.1;
+		class ItemInfo
+		{
+			priority = 1;
+		};
+		ACE_barrelTwist = 330.2;
+		ACE_barrelLength = 736.6;
+	};
+	
+	/*class 111SOG_M200_BLK: srifle_LRR_F
 	{
 		author = "SHRIKE";
-		_generalMacro = "srifle_LRR_F";
 		scope = 2;
-		baseWeapon = "srifle_LRR_F";
 		model = "\A3\Weapons_F\LongRangeRifles\M320\M320_F.p3d";
 		picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
 		UiPicture = "\A3\weapons_f\data\UI\icon_sniper_CA.paa";
-		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
 		hiddenSelections[] = {"camo"};
 		hiddenSelectionsTextures[] = {"\a3\weapons_f_bootcamp\longrangerifles\m320_camo\data\cheytac_m200_blufor_co.paa"};
 		displayName = "111SOG M200 Intervention(BLK)";
 		ACE_barrelTwist = 330.2;
 		ACE_barrelLength = 736.6;
 		
-	};
+	};*/
 	//-----------------------------------------EBR------------------------------------------//
 	class srifle_EBR_F: EBR_base_F
 	{
