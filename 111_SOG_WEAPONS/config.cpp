@@ -932,7 +932,7 @@ class CfgWeapons
 	};
 	
 	//------------------------------------------408----------------------------------------//
-	class srifle_LRR_F: LRR_base_F
+	/*class srifle_LRR_F: LRR_base_F
 	{
 		magazines[] = {"7Rnd_408_Mag","7rnd_sogM200_magazine"};
 		class WeaponSlotsInfo: WeaponSlotsInfo
@@ -945,12 +945,12 @@ class CfgWeapons
 				iconScale = 0.2;
 			};
 		};
-	};
+	};*/
 	
-	class 111SOG_M200_BLK: srifle_LRR_F
+	class 111SOG_M200_BLK: LRR_base_F
 	{
-		author = "Shrike & Krossin";
 		scope = 2;
+		author = "Shrike & Krossin";
 		model = "\A3\Weapons_F\LongRangeRifles\M320\M320_F.p3d";
 		displayName = "111SOG M200 Intervention(BLK)";
 		picture = "\A3\Weapons_F\LongRangeRifles\M320\Data\UI\gear_M320_LRR_X_CA.paa";
@@ -965,7 +965,13 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo
 		{
 			mass = 420;
-			class MuzzleSlot{};
+			class MuzzleSlot: MuzzleSlot
+			{
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleItems[] = {"muzzle_snds_93mmg","muzzle_snds_93mmg_tan"};
+				iconPosition[] = {0.0,0.43};
+				iconScale = 0.2;
+			};
 			class CowsSlot: CowsSlot
 			{
 				iconPosition[] = {0.6,0.35};
